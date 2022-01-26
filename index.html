@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,700&family=Noto+Sans+JP:wght@100;300;400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <title>Calendar App</title>
+  <link rel="icon" type="image/png" href="images/icon2.png" sizes="72x72" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/current_day.css">
+  <link rel="stylesheet" href="css/calender.css">
+  <link rel="stylesheet" href="css/calender_borders.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/portrait.css">
+  <style media="screen">
+
+  </style>
+
+</head>
+
+<body>
+  <div id="current-day-info" class="color">
+    <h1 id="app-name-landscape" class="off-color center default-cursor">
+      Hexalearn My Calendar
+    </h1>
+
+    <div>
+      <h2 id="cur-year" class="center default-cursor">2019</h2>
+    </div>
+
+    <div>
+      <h1 id="cur-day" class="current-day-heading center default-cursor">
+        Monday
+      </h1>
+      <h1 id="cur-month" class="current-day-heading center default-cursor">
+        June
+      </h1>
+      <h1 id="cur-date" class="current-day-heading center default-cursor">
+        7
+      </h1>
+    </div>
+
+    <button id="theme-landscape" class="font button" onclick="openModal(1);">Change Theme</button>
+  </div>
+
+  <div id="calender">
+    <h1 id="app-name-portrait" class="center off-color">My Calendar</h1>
+
+    <table class="default-cursor">
+      <thead class="color">
+        <tr>
+          <th colspan="7" class="border-color">
+            <h4 id="cal-year">2018</h4>
+            <div>
+              <i class="fas fa-caret-left icon" onclick="previousMonth();"></i>
+              <h3 id="cal-month">July</h3>
+              <i class="fas fa-caret-right icon" onclick="nextMonth();"></i>
+            </div>
+          </th>
+        </tr>
+
+        <tr>
+          <th class="weekday border-color">Sun</th>
+          <th class="weekday border-color">Mon</th>
+          <th class="weekday border-color">Tue</th>
+          <th class="weekday border-color">Wed</th>
+          <th class="weekday border-color">Thu</th>
+          <th class="weekday border-color">Fri</th>
+          <th class="weekday border-color">Sat</th>
+        </tr>
+      </thead>
+
+      <tbody id="table-body" class="border-color">
+        <tr>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);" class="tooltip">1 <img src="Images/note1.png"><span>This is a pretty good
+              note</span></td>
+          <td onclick="dayClicked(this);">1</td>
+        </tr>
+        <tr>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+
+        </tr>
+        <tr>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+        </tr>
+        <tr>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+        </tr>
+        <tr>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+        </tr>
+        <tr>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+          <td onclick="dayClicked(this);">1</td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="theme-portrait" class="font button color" onclick="openModal(1)">Change Theme</button>
+  </div>
+
+  <dialog id="modal" closed>
+    <div id="fav-color" hidden>
+      <div class="popup">
+        <h4>What is your favourite color?</h4>
+        <div id="color-options">
+
+          <div class="color-option">
+            <div class="color-preview" id="blue" style="background-color: #1B19CD;" onclick="updateColorData('blue');">
+              <i class="fas fa-check checkmark"></i>
+
+            </div>
+            <h5>Blue</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="red" style="background-color: #D01212;" onclick="updateColorData('red');">
+            </div>
+            <h5>Red</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="purple" style="background-color: #721d89;"
+              onclick="updateColorData('purple');"></div>
+            <h5>Purple</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="green" style="background-color: #158348;"
+              onclick="updateColorData('green');"></div>
+            <h5>Green</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="orange" style="background-color: #ee7d2d;"
+              onclick="updateColorData('orange');"></div>
+            <h5>Orange</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="deep-orange" style="background-color: #f13c26;"
+              onclick="updateColorData('deep-orange');"></div>
+            <h5>Deep Orange</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="baby-blue" style="background-color: #3182fc;"
+              onclick="updateColorData('baby-blue');"></div>
+            <h5>Baby Blue</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="cerise" style="background-color: #EA3D69;"
+              onclick="updateColorData('cerise');"></div>
+            <h5>Cerise</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="lime" style="background-color: #36c945;" onclick="updateColorData('lime');">
+            </div>
+            <h5>Lime</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="teal" style="background-color: #2FCCB9;" onclick="updateColorData('teal');">
+            </div>
+            <h5>Teal</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="pink" style="background-color: #F50D7A;" onclick="updateColorData('pink');">
+            </div>
+            <h5>Pink</h5>
+          </div>
+
+          <div class="color-option">
+            <div class="color-preview" id="black" style="background-color: #212524;"
+              onclick="updateColorData('black');"></div>
+            <h5>Black</h5>
+          </div>
+        </div>
+
+        <button id="update-theme-button" class="button font" onclick="updateColorClicked();">Update</button>
+      </div>
+    </div>
+    <div id="make-note" hidden>
+      <div class="popup">
+        <h4>Add a note to the calender</h4>
+        <textarea name="post-it" id="edit-post-it" class="font"></textarea>
+        <div>
+          <button class="button font post-it-button" id="add-post-it" onclick="submitPostIt();">Post It</button>
+          <button class="button font post-it-button" id="delete-button" onclick="deleteNote();">Delete It</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/date.js"></script>
+  <script type="text/javascript" src="js/modal.js"></script>
+  <script type="text/javascript" src="js/updating_color.js"></script>
+  <script type="text/javascript" src="js/making_notes.js"></script>
+  <script type="text/javascript" src="js/building_calender.js"></script>
+  <script type="text/javascript" src="js/start.js"></script>
+  <script type="text/javascript">
+
+    function dayClicked(elem) {
+      // console.log(elem.dataset.uid);
+      data.post_its.current_post_it_id = elem.dataset.uid;
+      currentDayHasANote(elem.dataset.uid);
+      openModal(2);
+    }
+
+    function openPostIt() {
+      document.getElementById("make-note").removeAttribute("hidden");
+      if (!data.post_its.current_post_it_new) {
+        document.getElementById("edit-post-it").value = post_its[data.post_its.current_post_it_index].note;
+      }
+    }
+
+    //value is whatever that is typed into the text area
+    function submitPostIt() {
+      // console.log("submit");
+      const value = document.getElementById("edit-post-it").value;
+      document.getElementById("edit-post-it").value = "";
+      let rando = getRandom(1, 6);
+      //value is whatever that written in the field
+      let post_it = {
+        id: data.post_its.current_post_it_id,
+        note_num: rando,
+        note: value,
+      }
+      if (data.post_its.current_post_it_new) {
+        post_its.push(post_it);
+      } else {
+        post_its[data.post_its.current_post_it_index].note = post_it.note;
+      }
+      fillInCalender();
+      //this code closes the modal
+      document.getElementById("make-note").setAttribute("hidden", "hidden")
+      modal.classList.add("fade-out");
+
+    }
+
+    //this code randomize the post it color
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function currentDayHasANote(uid) {
+      for (let i = 0; i < post_its.length; i++) {
+        if (post_its[i].id == uid) {
+          data.post_its.current_post_it_new = false;
+          data.post_its.current_post_it_index = i;
+          return;
+        }
+      }
+      data.post_its.current_post_it_new = true;
+    }
+
+    function deleteNote() {
+      document.getElementById("edit-post-it").value = "";
+      let indexToDel;
+      if (!data.post_its.current_post_it_new) {
+        indexToDel = data.post_its.current_post_it_index;
+      }
+      if (indexToDel != undefined) {
+        post_its.splice(indexToDel, 1);
+      }
+      fillInCalender();
+      document.getElementById("make-note").setAttribute("hidden", "hidden");
+      modal.classList.add("fade-out");
+    }
+  </script>
+  <script type="text/javascript" src="js/start.js"></script>
+
+</html>

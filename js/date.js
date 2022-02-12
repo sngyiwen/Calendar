@@ -9,7 +9,7 @@ function updateCurrentDates() {
     data.current_date.day = day;
     data.current_date.month = month;
     data.current_date.year = year;
-    data.current_date = date;
+    data.current_date.date = date;
 
     data.calender.month = month;
     data.calender.year = year;

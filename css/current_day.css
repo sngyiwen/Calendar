@@ -33,3 +33,11 @@
     opacity: 0.4;
     color:black;
   }
+
+  @media (orientation: landscape){
+    #current-day-info{
+
+      clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+
+    }
+  }

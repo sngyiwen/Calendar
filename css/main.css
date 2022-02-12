@@ -6,7 +6,7 @@ Body {
     align-items: stretch;
   }
   table, td, th {
-    border: 1px solid #232323;
+    border: 1px solid #9c9c9c;
   }
   table{
     margin: 14px auto;
